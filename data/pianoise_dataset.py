@@ -123,4 +123,6 @@ class PianoiseDataset(BaseDataset):
 
   def __len__(self):
     """Return the total number of images."""
-    return max(len(self.A_paths), len(self.B_paths)) * 20
+    AVERAGE_SONG_LENGTH = 180.
+    WINDOW_LENGTH_SECONDS = 8.192
+    return max(len(self.A_paths), len(self.B_paths)) * int(AVERAGE_SONG_LENGTH / WINDOW_LENGTH_SECONDS)
